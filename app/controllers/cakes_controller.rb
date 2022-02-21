@@ -2,7 +2,6 @@ class CakesController < ApplicationController
   before_action :set_current_user, only: %i[new create]
   before_action :set_cake, only: %i[show]
 
-
   def show; end
 
   def new
