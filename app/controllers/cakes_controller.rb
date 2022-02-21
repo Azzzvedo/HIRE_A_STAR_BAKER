@@ -1,6 +1,6 @@
 class CakesController < ApplicationController
   before_action :set_current_user, only: %i[new create destroy]
-  before_action :set_cake, only: %i[show destroy]
+  before_action :set_cake, only: %i[show edit update destroy]
 
   def show; end
 
@@ -12,6 +12,13 @@ class CakesController < ApplicationController
     @cake = Cake.new(cake_params)
     @cake.user = @user
     @cake.save
+    redirect_to cake_path(@cake)
+  end
+
+  def edit; end
+
+  def update
+    @cake.update(cake_params)
     redirect_to cake_path(@cake)
   end
 
