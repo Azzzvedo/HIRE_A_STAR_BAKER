@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :cakes
   has_many :bookings
+  has_many :bookings, through: :cakes
 end

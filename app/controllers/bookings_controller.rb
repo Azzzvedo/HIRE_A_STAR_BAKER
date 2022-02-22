@@ -1,7 +1,16 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: %i[show update]
+  before_action :set_booking, only: %i[show update pay_booking]
   def index
-    @bookings = Booking.where(user: current_user)
+
+    @user = current_user
+    if @user.baker?
+      @bookings = []
+      @user.cakes.each do |cake|
+        @bookings = Booking.where(cake: cake)
+      end
+    else
+      @bookings = Booking.where(user: current_user)
+    end
   end
 
   def show; end
@@ -27,7 +36,11 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:date)
+    if current_user.baker?
+      params.require(:booking).permit(:date, :paid, :confirmed)
+    else
+      params.require(:booking).permit(:date)
+    end
   end
 
   def set_booking

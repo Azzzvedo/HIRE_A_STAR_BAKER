@@ -4,6 +4,6 @@ class Cake < ApplicationRecord
   has_one_attached :photo
 
 
-  validates :name, presence: true
+  validates :name, presence: true, uniqueness: true
   validates :price, presence: true
 end
