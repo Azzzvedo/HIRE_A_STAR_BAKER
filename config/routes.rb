@@ -8,5 +8,5 @@ Rails.application.routes.draw do
   resources :cakes do
     resources :bookings, only: %i[new create]
   end
-  resources :bookings, only: %i[index show update delete]
+  resources :bookings, only: %i[index show update destroy]
 end

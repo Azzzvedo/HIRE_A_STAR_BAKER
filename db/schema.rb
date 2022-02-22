@@ -10,19 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_21_205941) do
+ActiveRecord::Schema.define(version: 2022_02_22_122759) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "bookings", force: :cascade do |t|
-    t.date "date"
     t.time "time"
     t.boolean "paid", default: false, null: false
     t.bigint "user_id", null: false
     t.bigint "cake_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "confirmed", default: false, null: false
     t.index ["cake_id"], name: "index_bookings_on_cake_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
