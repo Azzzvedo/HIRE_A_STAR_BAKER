@@ -2,6 +2,10 @@ class CakesController < ApplicationController
   before_action :set_current_user, only: %i[new create destroy]
   before_action :set_cake, only: %i[show edit update destroy]
 
+  def index
+    @cakes = Cake.all
+  end
+
   def show; end
 
   def new

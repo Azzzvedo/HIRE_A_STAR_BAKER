@@ -1,0 +1,6 @@
+<ul>
+  <% @cakes.each do |cake| %>
+    <li><%= link_to cake.name, cake_path(cake) %></li>
+  <% end %>
+</ul>
+<%= link_to 'Create cake', new_cake_path %>
