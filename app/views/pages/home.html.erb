@@ -1,6 +1,6 @@
 <h1>Bakers</h1>
 <ul>
   <% @bakers.each do |baker| %>
-    <li><%= baker.first_name %></li>
+    <li><%= baker.first_name %> <%= baker.first_name %><%= link_to 'see my cakes', user_show_path(baker) %></li>
   <% end %>
 </ul>
