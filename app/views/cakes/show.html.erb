@@ -4,6 +4,9 @@
       <div class="bg-white rounded p-3 shadow">
         <h2><%= @cake.name %></h2>
         <h4><%= @cake.price %></h4>
+          <% if @cake.photo.attached? %>
+            <%= cl_image_tag @cake.photo.key, height: 300, width: 400, crop: :fill %>
+          <% end %>
         <ul>
           <li><%= link_to 'Modify this cake', edit_cake_path %></li>
           <li><%= link_to 'See more cakes', cakes_path %></li>
