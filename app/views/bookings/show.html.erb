@@ -1,0 +1,19 @@
+
+    <ul>
+      <li><%= @booking.date %></li>
+      <li><%= @booking.cake.user.first_name %></li>
+      <li><%= @booking.cake.user.last_name %></li>
+      <li>confirmed: <%= @booking.confirmed ? '[X]' : '[ ]'  %></li>
+      <li>paid: <%= @booking.paid ? '[X]' : '[ ]' %></li>
+    </ul>
+
+<div class="container py-5">
+  <div class="row">
+    <div class="col-12 col-md-6 offset-lg-3">
+      <div class="bg-white rounded p-3 shadow">
+        <h3>Edit booking!</h3>
+          <%= render "form", resource: @booking %>
+      </div>
+    </div>
+  </div>
+</div>
