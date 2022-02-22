@@ -7,8 +7,8 @@
         <ul>
           <li><%= link_to 'Modify this cake', edit_cake_path %></li>
           <li><%= link_to 'See more cakes', cakes_path %></li>
-          <li><%= link_to 'Back to profile', user_show_path %></li>
-          <li><%= link_to 'Book this cake',  new_booking_path%></li>
+          <li><%= link_to 'Back to profile', user_show_path(@cake.user) %></li>
+          <%# TODO link_to 'Book this cake',  new_booking_path%>
         </ul>
       </div>
     </div>
