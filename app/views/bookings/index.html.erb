@@ -1,11 +1,13 @@
 <table>
   <% @bookings.each do |booking| %>
     <tr>
-      <td><%= booking.time %></td>
-      <td><%= booking.paid %></td>
-      <td><%= booking.user %></td>
-      <td><%= booking.cake.user %></td>
-      <td><%= booking.confirmed %></td>
+      <ul>
+          <li><%= booking.date %></li>
+          <li><%= booking.cake.user.first_name %></li>
+          <li><%= booking.cake.user.last_name %></li>
+          <li>confirmed: <%= booking.confirmed ? '[X]' : '[ ]'  %></li>
+          <li>paid: <%= booking.paid ? '[X]' : '[ ]' %></li>
+      </ul>
     </tr>
   <% end %>
 </table>
