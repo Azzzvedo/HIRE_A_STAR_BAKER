@@ -1,0 +1,22 @@
+<h3><%= @user.first_name %> <%= @user.last_name %></h3>
+
+<% if @user.baker = true %>
+  <table>
+    <% @user.cakes.each do |cake| %>
+      <tr>
+        <td><%= cake.name %></td>
+        <td><%= cake.price %></td>
+        <td><%= link_to 'show', cake_path(cake) %></td>
+        <td><%= link_to 'edit', edit_cake_path(cake) %></td>
+        <td><%= link_to 'delete', cake_path(cake), method: :destroy %></td>
+      </tr>
+    <% end %>
+      <tr>
+        <td><%= link_to 'New cake', new_cake_path %></td>
+      </tr>
+  </table>
+<%  end %>
+
+<%# TODO add booking summary once bookings %>
+
+<%= link_to 'Home', root_path %>
