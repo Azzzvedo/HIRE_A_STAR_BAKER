@@ -1,12 +1,25 @@
 .navbar-lewagon {
-  justify-content: space-between;
+  // justify-content: space-between;
   background: white;
+  width:100vh;
+  height:70px;
+  position:fixed;
+  -webkit-transform-origin: left top;
+  -webkit-transform:rotate(-90deg) translateX(-100%);
 }
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+ul.nav-item {
+  margin-right:20px;
+  float:right;
+  height:100%;
+  line-height:45px;
+  position: relative;
+}
+
+.navbar-align {
+  display: flex;
 }
