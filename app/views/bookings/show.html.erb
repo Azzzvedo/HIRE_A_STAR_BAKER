@@ -1,0 +1,9 @@
+
+    <ul>
+      <li><%= @booking.time %></li>
+      <li><%= @booking.cake.user.first_name %></li>
+      <li><%= @booking.cake.user.last_name %></li>
+      <li>confirmed: <%= @booking.confirmed ? '[X]' : '[ ]'  %></li>
+      <li>paid: <%= @booking.paid ? '[X]' : '[ ]' %></li>
+      <% raise %>
+    </ul>
