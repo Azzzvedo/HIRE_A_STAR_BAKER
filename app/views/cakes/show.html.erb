@@ -1,0 +1,16 @@
+<div class="container py-5">
+  <div class="row">
+    <div class="col-12 col-md-6 offset-lg-3">
+      <div class="bg-white rounded p-3 shadow">
+        <h2><%= @cake.name %></h2>
+        <h4><%= @cake.price %></h4>
+        <ul>
+          <li><%= link_to 'Modify this cake', edit_cake_path %></li>
+          <li><%= link_to 'See more cakes', cakes_path %></li>
+          <li><%= link_to 'Back to profile', user_show_path %></li>
+          <li><%= link_to 'Book this cake',  new_booking_path%></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
