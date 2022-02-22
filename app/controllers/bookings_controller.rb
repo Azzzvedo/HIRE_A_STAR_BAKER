@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: %i[show]
+  before_action :set_booking, only: %i[show update]
   def index
     @bookings = Booking.where(user: current_user)
   end
@@ -16,6 +16,11 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.cake = Cake.find(params[:cake_id])
     @booking.save
+    redirect_to booking_path(@booking)
+  end
+
+  def update
+    @booking.update(booking_params)
     redirect_to booking_path(@booking)
   end
 
