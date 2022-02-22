@@ -1,0 +1,12 @@
+<table>
+  <% @bookings.each do |booking| %>
+    <tr>
+      <td><%= booking.time %></td>
+      <td><%= booking.paid %></td>
+      <td><%= booking.user %></td>
+      <td><%= booking.cake.user %></td>
+      <td><%= booking.confirmed %></td>
+    </tr>
+  <% end %>
+
+</table>
