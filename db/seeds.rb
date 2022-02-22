@@ -1,4 +1,4 @@
-require 'raker'
+require 'faker'
 require 'open-uri'
 
 50.times do
@@ -14,7 +14,7 @@ require 'open-uri'
   if user.baker?
     5.times do
       cake = Cake.create!(
-        name: Faker::HarryPotter.spell,
+        name: Faker::Movies::HarryPotter.spell,
         price: rand(3..16),
         user: user
       )
