@@ -28,7 +28,9 @@
                   <%= "Your #{booking.cake.name} is still awaiting confirmation. Please check back soon!" %>
                 <% end %>
               <% end %>
-              <%= link_to 'See details', booking_path(booking), class: 'btn btn-primary' %>
+              <div class="mt-1">
+                <%= link_to 'See details', booking_path(booking), class: 'btn btn-primary' %>
+              </div>
             </div>
           </div>
         </div>

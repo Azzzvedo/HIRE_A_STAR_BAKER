@@ -5,6 +5,6 @@
    the baker closest to you and book them to make one of their delicious bakes</p>
 <ul>
   <% @bakers.each do |baker| %>
-    <li><%= baker.first_name %></li>
+    <li><%= baker.first_name %> <%= baker.first_name %><%= link_to 'see my cakes', user_show_path(baker) %></li>
   <% end %>
 </ul>

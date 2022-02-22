@@ -1,6 +1,8 @@
 require 'faker'
 require 'open-uri'
 
+User.destroy_all
+
 50.times do
   user = User.create!(
     first_name: Faker::Name.first_name,
@@ -14,7 +16,7 @@ require 'open-uri'
   if user.baker?
     5.times do
       cake = Cake.create!(
-        name: Faker::Movies::HarryPotter.spell,
+        name: "#{Faker::Movies::HarryPotter.spell} #{Faker::Dessert.variety}",
         price: rand(3..16),
         user: user
       )
@@ -22,4 +24,5 @@ require 'open-uri'
       cake.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
     end
   end
+  puts "user #{user.id}"
 end
