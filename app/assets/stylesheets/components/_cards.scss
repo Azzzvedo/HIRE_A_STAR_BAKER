@@ -1,8 +1,14 @@
-.container {
+.cards-container {
   display: flex;
   // background: white;
   padding: 12px 16px;
   gap: 16px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 16px;
 }
 
 
