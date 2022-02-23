@@ -4,7 +4,7 @@ require 'open-uri'
 User.destroy_all
 
 
-users = ['arrabella.stephenson@gmail.com', 'ian.wiggins@gmail.com', 'josh.walker@gmail.com', 'luz.valdovinos@gmail.com']
+users = ['arabella.stephenson@gmail.com', 'ian.wiggins@gmail.com', 'josh.walker@gmail.com', 'luz.valdovinos@gmail.com']
 users.each do |user|
   name = user.split("@")[0].split(".")
   admin = User.create(first_name: name[0].capitalize, last_name: name[1].capitalize, email: user, password: "password", address: Faker::Address.street_address, baker: true)
