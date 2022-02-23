@@ -3,6 +3,8 @@
 <p>Have your cake and eat it too!</p>
 </div>
 
+<div class="container">
+
 <div class="home-blurb">
   <p style= "line-height:2em">Do you love the Great British Bake Off?
     Have you always wanted to try some of the delicious bakes from the tent?
@@ -11,32 +13,29 @@
    </p>
 </div>
 
-<h2>Bakers</h2>
-  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <h2>Bakers</h2>
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
 
-<div class="cards">
-  <% @bakers.each do |baker| %>
-    <div class = "card-profiles">
-      <div class="card-image">
-        <div class="card-info">
-          <h2><%= baker.first_name %> <%= baker.last_name %></h2>
-          <%# <p>Winner of GBBO</p> %>
+  <div class="cards">
+    <% @bakers.each do |baker| %>
+      <div class = "card-profiles">
+        <div class="card-image">
+          <div class="card-info">
+            <h2><%= baker.first_name %> <%= baker.last_name %></h2>
+            <%# <p>Winner of GBBO</p> %>
+          </div>
+            <%# place tags here %>
         </div>
-          <%# place tags here %>
+        <div>
+          <ul>
+            <li><%= link_to 'see my cakes', user_show_path(baker) %></li>
+          </ul>
+        </div>
       </div>
-      <div>
-        <ul>
-          <li><%= link_to 'see my cakes', user_show_path(baker) %></li>
-        </ul>
-      </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
+    <!-- Next and previous buttons -->
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+  <p><%= link_to 'See my bookings', bookings_path(current_user) %></p>
 </div>
-  <!-- Next and previous buttons -->
-  <a class="next" onclick="plusSlides(1)">&#10095;</a>
-
-
-
-
-
-<p><%= link_to 'See my bookings', bookings_path(current_user) %></p>
