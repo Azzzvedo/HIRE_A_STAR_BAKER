@@ -18,7 +18,6 @@
         <div class="mt-1">
           <%= link_to 'See details', booking_path(booking), class: 'btn btn-primary' %>
         </div>
-        <%= link_to 'Bookings', bookings_path, class: "badge badge-light bookings-link" %>
         <%= link_to 'Cake', cake_path(booking.cake), class: "badge badge-light bookings-link" %>
         <%= link_to 'Baker', user_path(booking.cake.user), class: "badge badge-light bookings-link" %>
       </div>
@@ -33,16 +32,16 @@
             <p>buyer: <%= cake_booking.user.first_name %> <%= cake_booking.user.last_name %></p>
             <p>baker: <%= cake_booking.cake.user.first_name %> <%= cake_booking.cake.user.last_name %></p>
             <%= simple_form_for cake_booking do |f| %>
-              <%= f.input :confirmed, as: :boolean, checked_value: true, unchecked_value: false %>
-              <%= f.input :paid, as: :boolean, checked_value: true, unchecked_value: false %>
+              <%= f.input :confirmed, as: :boolean %>
+              <%= f.input :paid, as: :boolean %>
               <%= f.submit class: 'btn btn-primary col-4' %>
             <% end %>
           <div class="mt-1">
             <%= link_to 'See details', booking_path(cake_booking), class: 'btn btn-primary col-4' %>
           </div>
-            <%= link_to 'Bookings', bookings_path, class: "badge badge-light bookings-link" %>
             <%= link_to 'Cake', cake_path(cake_booking.cake), class: "badge badge-light bookings-link" %>
             <%= link_to 'Baker', user_path(cake_booking.cake.user), class: "badge badge-light bookings-link" %>
         </div>
       </div>
   <% end %>
+  <%= link_to 'Home', root_path, class: "badge badge-light bookings-link" if @cake_bookings.count == 0 && @bookings.count == 0 %>

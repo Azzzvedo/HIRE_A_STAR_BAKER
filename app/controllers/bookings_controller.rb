@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: %i[show update]
+  before_action :set_booking, only: %i[show update destroy]
   def index
     @user = current_user
     if @user.baker?
@@ -8,7 +8,6 @@ class BookingsController < ApplicationController
         Booking.where(cake_id: cake.id).each do |booking|
           @cake_bookings << booking
         end
-
       end
     end
     @bookings = Booking.where(user: current_user)
@@ -32,6 +31,11 @@ class BookingsController < ApplicationController
   def update
     @booking.update(booking_params)
     redirect_to booking_path(@booking)
+  end
+
+  def destroy
+    @booking.destroy
+    redirect_to bookings_path
   end
 
   private
