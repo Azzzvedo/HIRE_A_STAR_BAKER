@@ -1,15 +1,16 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: %i[show update]
   def index
-
     @user = current_user
     if @user.baker?
+      @cake_bookings = []
       @user.cakes.each do |cake|
-        @bookings = Booking.where(cake_id: cake.id)
+        Booking.where(cake_id: cake.id).each do |booking|
+          @cake_bookings << booking
+        end
       end
-    else
-      @bookings = Booking.where(user: current_user)
     end
+    @bookings = Booking.where(user: current_user)
   end
 
   def show; end
