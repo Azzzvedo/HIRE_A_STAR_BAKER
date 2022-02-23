@@ -4,6 +4,7 @@
       <div class="bg-white rounded p-3 shadow">
         <h3>Create a new booking!</h3>
           <%= render "form", resource: [@cake, @booking] %>
+          <%= link_to 'Bake to cake', cake_path(@cake), class: "badge badge-light bookings-link" %>
       </div>
     </div>
   </div>

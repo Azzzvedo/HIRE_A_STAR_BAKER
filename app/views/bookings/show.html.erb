@@ -6,8 +6,8 @@
     <p>baker: <%= @booking.cake.user.first_name %> <%= @booking.cake.user.last_name %></p>
     <% if @booking.cake.user == @user %>
       <%= simple_form_for @booking do |f| %>
-        <%= f.input :confirmed, as: :boolean, checked_value: true, unchecked_value: false %>
-        <%= f.input :paid, as: :boolean, checked_value: true, unchecked_value: false %>
+        <%= f.input :confirmed, as: :boolean %>
+        <%= f.input :paid, as: :boolean %>
         <%= f.submit class: 'btn btn-primary col-4' %>
       <% end %>
     <% elsif @booking.user == @user %>
@@ -26,5 +26,6 @@
     <%= link_to 'Bookings', bookings_path, class: "badge badge-light bookings-link" %>
     <%= link_to 'Cake', cake_path(@booking.cake), class: "badge badge-light bookings-link" %>
     <%= link_to 'Baker', user_path(@booking.cake.user), class: "badge badge-light bookings-link" %>
+    <%= link_to 'Delete', booking_path(@booking), method: :delete, data: { confirm: "Are you sure?"}, class: "badge badge-light bookings-link" %>
   </div>
 </div>
