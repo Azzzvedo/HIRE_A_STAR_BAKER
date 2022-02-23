@@ -23,3 +23,9 @@ ul.nav-item {
 .navbar-align {
   display: flex;
 }
+.nav-link{
+  font-size: 18px;
+}
+.nav-link:hover {
+  transform: scale(1.5);
+}

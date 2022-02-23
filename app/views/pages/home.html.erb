@@ -1,9 +1,6 @@
 
-<<<<<<< HEAD
-<h1>Bakers</h1>
 
-=======
->>>>>>> 435fb391cc07c283c9925b0373a5d05b8211ca3c
+<div class="hero-image"></div>
 <h1>Hire a Star Baker</h1>
 <div class="home-blurb">
   <p style= "line-height:2em">Do you love the Great British Bake Off?
@@ -22,13 +19,12 @@
       <div class="card-image">
         <div class="card-info">
           <h2><%= baker.first_name %> <%= baker.last_name %></h2>
-          <%# <p>Winner of GBBO</p> %>
         </div>
-          <%# place tags here %>
       </div>
-      <div>
+
+      <div class = "button-container">
         <ul>
-          <li><%= link_to 'see my cakes', user_show_path(baker) %></li>
+          <li><button><%= link_to 'See my cakes', user_show_path(baker) %></button></li>
         </ul>
       </div>
     </div>
@@ -41,4 +37,4 @@
 
 
 
-<p><%= link_to 'See my bookings', bookings_path(current_user) %></p>
+<p><button><%= link_to 'See my bookings', bookings_path(current_user) %></button></p>
