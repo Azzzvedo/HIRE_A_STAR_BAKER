@@ -9,14 +9,16 @@
           <% end %>
         <div class="d-flex justify-content-start">
           <div class="col-8">
-            <% if current_user.baker? %>
-              <div><%= link_to 'Modify this cake', edit_cake_path, class: "btn btn-primary mt-1 col-12" %></div >
-              <div><%= link_to 'Remove this cake', cake_path(@cake), method: :delete, data: { confirm: "Are you sure?"}, class: "btn btn-primary mt-1 col-12" %></div >
-            <% else %>
-              <div><%= link_to 'Book this cake', new_cake_booking_path(@cake), class: "btn btn-primary mt-1 col-12" %></div >
-              <div><%= link_to 'See more cakes', cakes_path, class: "btn btn-primary mt-1 col-12" %></div >
-              <div><%= link_to 'Back to profile', user_show_path(@cake.user), class: "btn btn-primary mt-1 col-12" %></div >
+            <% if current_user %>
+              <% if current_user.baker? %>
+                <div><%= link_to 'Modify this cake', edit_cake_path, class: "btn btn-primary mt-1 col-12" %></div >
+                <div><%= link_to 'Remove this cake', cake_path(@cake), method: :delete, data: { confirm: "Are you sure?"}, class: "btn btn-primary mt-1 col-12" %></div >
+              <% end %>
+            <div><%= link_to 'Book this cake', new_cake_booking_path(@cake), class: "btn btn-primary mt-1 col-12" %></div >
             <% end %>
+            <div><%= link_to 'See more cakes', cakes_path, class: "btn btn-primary mt-1 col-12" %></div >
+            <div><%= link_to 'Back to profile', user_show_path(@cake.user), class: "btn btn-primary mt-1 col-12" %></div >
+            <div><%= link_to 'Log in to book this cake', new_user_session_path %></div >
           </div>
         </div>
       </div>
