@@ -8,6 +8,7 @@ class BookingsController < ApplicationController
         Booking.where(cake_id: cake.id).each do |booking|
           @cake_bookings << booking
         end
+
       end
     end
     @bookings = Booking.where(user: current_user)
