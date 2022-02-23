@@ -16,7 +16,7 @@ class CakesController < ApplicationController
     @cake = Cake.new(cake_params)
     @cake.user = @user
     @cake.save
-    redirect_to cake_path(@cake)
+    redirect_to user_show_path(@user)
   end
 
   def edit; end
@@ -28,7 +28,7 @@ class CakesController < ApplicationController
 
   def destroy
     @cake.destroy
-    link_to user_show(@user)
+    redirect_to user_show_path(@user)
   end
 
   private
@@ -42,6 +42,6 @@ class CakesController < ApplicationController
   end
 
   def cake_params
-    params.require(:cake).permit(:name, :price)
+    params.require(:cake).permit(:name, :price, :photo)
   end
 end

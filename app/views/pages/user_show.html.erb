@@ -8,7 +8,7 @@
         <td><%= cake.price %></td>
         <td><%= link_to 'show', cake_path(cake) %></td>
         <td><%= link_to 'edit', edit_cake_path(cake) %></td>
-        <td><%= link_to 'delete', cake_path(cake), method: :destroy %></td>
+        <td><%= link_to 'delete', cake_path(cake), method: :delete, data: { confirm: 'Are you sure?'} %></td>
       </tr>
     <% end %>
       <tr>
