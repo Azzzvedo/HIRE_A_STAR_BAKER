@@ -1,10 +1,71 @@
+
+<h1>Bakers</h1>
+
+<div class = "container">
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <div class = "card-profiles">
+    <div class="card-image">
+      <div class="card-info">
+        <h2>Baker Name</h2>
+        <%# <p>Winner of GBBO</p> %>
+      </div>
+        <%# place tags here %>
+    </div>
+    <div>
+      <ul>
+      <li><button type="button">Tag</button></li>
+      <li><button type="button">Tag</button></li>
+      </ul>
+    </div>
+ </div>
+
+ <div class = "card-profiles">
+    <div class="card-image">
+      <div class="card-info">
+        <h2>Baker Name</h2>
+        <%# <p>Winner of GBBO</p> %>
+      </div>
+        <%# place tags here %>
+    </div>
+    <div>
+      <ul>
+      <li><button type="button">Tag</button></li>
+      <li><button type="button">Tag</button></li>
+      </ul>
+    </div>
+ </div>
+
+ <div class = "card-profiles">
+    <div class="card-image">
+      <div class="card-info">
+        <h2>Baker Name</h2>
+        <%# <p>Winner of GBBO</p> %>
+      </div>
+        <%# place tags here %>
+    </div>
+    <div>
+      <ul>
+      <li><button type="button">Tag</button></li>
+      <li><button type="button">Tag</button></li>
+      </ul>
+    </div>
+ </div>
+  <!-- Next and previous buttons -->
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+
+
+
 <h1>Hire a Star Baker</h1>
 <p style= "line-height:2em">Do you love the Great British Bake Off?
    Have you always wanted to try some of the delicious bakes from the tent?
    Well, now you can with Hire a Star Baker. Find you favorite baker, or
    the baker closest to you and book them to make one of their delicious bakes</p>
+
 <ul>
   <% @bakers.each do |baker| %>
     <li><%= baker.first_name %> <%= baker.first_name %><%= link_to 'see my cakes', user_show_path(baker) %></li>
   <% end %>
 </ul>
+
+<p><%= link_to 'See my bookings', bookings_path(current_user) %></p>
