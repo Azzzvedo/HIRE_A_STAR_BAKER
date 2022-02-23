@@ -3,7 +3,22 @@ require 'open-uri'
 
 User.destroy_all
 
-50.times do
+users = ['arrabella.stephenson@gmail.com', 'ian.wiggins@gmail.com', 'josh.walker@gmail.com', 'luz.valdevinos@gmail.com']
+users.each do |user|
+  name = user.split("@")[0].split(".")
+  admin = User.create(first_name: name[0].capitalize, last_name: name[1].capitalize, email: user, password: "password", address: Faker::Address.street_address, baker: true)
+  3.times do
+    cake = Cake.create!(
+      name: "#{Faker::Movies::HarryPotter.spell} #{Faker::Dessert.variety}",
+      price: rand(3..16),
+      user: admin
+    )
+    file = URI.open('https://source.unsplash.com/random')
+    cake.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+  end
+end
+
+26.times do
   user = User.create!(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
@@ -14,7 +29,7 @@ User.destroy_all
   )
 
   if user.baker?
-    5.times do
+    3.times do
       cake = Cake.create!(
         name: "#{Faker::Movies::HarryPotter.spell} #{Faker::Dessert.variety}",
         price: rand(3..16),
