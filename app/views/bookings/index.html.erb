@@ -1,15 +1,12 @@
 <h3><%= 'Your cakes!' if @bookings.count > 0 %> </h3>
   <% @bookings.each do |booking| %>
-    <div class="py-5">
-      <div class="row">
-        <div class="col-12 col-md-6 offset-lg-3">
+
+        <div class="col-6 col-md-4 offset-lg-3">
           <div class="bg-white rounded p-3 shadow">
             <h5><%= booking.cake.name %></h5>
             <p><%= booking.date %></p>
-            <ul>
-              <li>buyer: <%= booking.user.first_name %> <%= booking.user.last_name %></li>
-              <li>baker: <%= booking.cake.user.first_name %> <%= booking.cake.user.last_name %></li>
-            </ul>
+            <p>buyer: <%= booking.user.first_name %> <%= booking.user.last_name %></p>
+            <p>baker: <%= booking.cake.user.first_name %> <%= booking.cake.user.last_name %></p>
               <% if booking.confirmed? %>
                 <% if booking.paid?%>
                   <p><%= "#{booking.cake.user.first_name.capitalize} is looking forward to making your #{booking.cake.name} for you!" %></p>
@@ -24,31 +21,24 @@
             </div>
           </div>
         </div>
-      </div>
-    </div>
+
   <% end %>
 <h3><%= 'Your bakes!' if @cake_bookings.count > 0 %> </h3>
   <% @cake_bookings.each do |cake_booking| %>
-    <div class="py-5">
-      <div class="row">
-        <div class="col-12 col-md-6 offset-lg-3">
-          <div class="bg-white rounded p-3 shadow">
-            <h5><%= cake_booking.cake.name %></h5>
-            <p><%= cake_booking.date %></p>
-            <ul>
-              <li>buyer: <%= cake_booking.user.first_name %> <%= cake_booking.user.last_name %></li>
-              <li>baker: <%= cake_booking.cake.user.first_name %> <%= cake_booking.cake.user.last_name %></li>
-            </ul>
-              <%= simple_form_for cake_booking do |f| %>
-                <%= f.input :confirmed, as: :boolean, checked_value: true, unchecked_value: false %>
-                <%= f.input :paid, as: :boolean, checked_value: true, unchecked_value: false %>
-                <%= f.submit class: 'btn btn-primary' %>
-              <% end %>
-            <div class="mt-1">
-              <%= link_to 'See details', booking_path(cake_booking), class: 'btn btn-primary' %>
-            </div>
+      <div class="col-6 col-md-4 offset-lg-3">
+        <div class="bg-white rounded p-3 shadow">
+          <h5><%= cake_booking.cake.name %></h5>
+          <p><%= cake_booking.date %></p>
+            <p>buyer: <%= cake_booking.user.first_name %> <%= cake_booking.user.last_name %></p>
+            <p>baker: <%= cake_booking.cake.user.first_name %> <%= cake_booking.cake.user.last_name %></p>
+            <%= simple_form_for cake_booking do |f| %>
+              <%= f.input :confirmed, as: :boolean, checked_value: true, unchecked_value: false %>
+              <%= f.input :paid, as: :boolean, checked_value: true, unchecked_value: false %>
+              <%= f.submit class: 'btn btn-primary col-4' %>
+            <% end %>
+          <div class="mt-1">
+            <%= link_to 'See details', booking_path(cake_booking), class: 'btn btn-primary col-4' %>
           </div>
         </div>
       </div>
-    </div>
   <% end %>

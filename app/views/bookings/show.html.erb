@@ -1,35 +1,30 @@
-
-<div class="container py-5">
-  <div class="row">
-    <div class="col-12 col-md-6 offset-lg-3">
-      <div class="bg-white rounded p-3 shadow">
-        <h5><%= @booking.cake.name %></h5>
-        <p><%= @booking.date %></p>
-        <ul>
-          <li>buyer: <%= @booking.user.first_name %> <%= @booking.user.last_name %></li>
-          <li>baker: <%= @booking.cake.user.first_name %> <%= @booking.cake.user.last_name %></li>
-        </ul>
-        <% if @booking.cake.user == @user %>
-          <%= simple_form_for @booking do |f| %>
-            <%= f.input :confirmed, as: :boolean, checked_value: true, unchecked_value: false %>
-            <%= f.input :paid, as: :boolean, checked_value: true, unchecked_value: false %>
-            <%= f.submit class: 'btn btn-primary' %>
-          <% end %>
-        <% elsif @booking.user == @user %>
-          <% if @booking.confirmed? %>
-            <% if @booking.paid?%>
-              <p><%= "#{@booking.cake.user.first_name.capitalize} is looking forward to making your #{@booking.cake.name} for you!" %></p>
-            <% else %>
-              <p><%= "Your #{@booking.cake.name} has been confirmed. Do you wish to make your payment of £#{@booking.cake.price} now?" %></p>
-            <% end %>
-          <% else %>
-            <%= "Your #{@booking.cake.name} is still awaiting confirmation. Please check back soon!" %>
-          <% end %>
+<div class="col-12 col-md-6 offset-lg-3">
+  <div class="bg-white rounded p-3 shadow">
+    <h5><%= @booking.cake.name %></h5>
+    <p><%= @booking.date %></p>
+    <p>buyer: <%= @booking.user.first_name %> <%= @booking.user.last_name %></p>
+    <p>baker: <%= @booking.cake.user.first_name %> <%= @booking.cake.user.last_name %></p>
+    <% if @booking.cake.user == @user %>
+      <%= simple_form_for @booking do |f| %>
+        <%= f.input :confirmed, as: :boolean, checked_value: true, unchecked_value: false %>
+        <%= f.input :paid, as: :boolean, checked_value: true, unchecked_value: false %>
+        <%= f.submit class: 'btn btn-primary col-4' %>
+      <% end %>
+    <% elsif @booking.user == @user %>
+      <% if @booking.confirmed? %>
+        <% if @booking.paid?%>
+          <p><%= "#{@booking.cake.user.first_name.capitalize} is looking forward to making your #{@booking.cake.name} for you!" %></p>
+        <% else %>
+          <p><%= "Your #{@booking.cake.name} has been confirmed. Do you wish to make your payment of £#{@booking.cake.price} now?" %></p>
         <% end %>
-        <h6>Edit booking</h6>
-        <%= render "form", resource: @booking %>
-        <%= link_to 'View all bookings', bookings_path, class: 'btn btn-primary mt-4' %>
-      </div>
-    </div>
+      <% else %>
+        <%= "Your #{@booking.cake.name} is still awaiting confirmation. Please check back soon!" %>
+      <% end %>
+    <% end %>
+    <h6>Edit booking</h6>
+    <%= render "form", resource: @booking %>
+    <%= link_to 'Bookings', bookings_path, class: "badge badge-light bookings-link" %>
+    <%= link_to 'Cake', cake_path(@booking.cake), class: "badge badge-light bookings-link" %>
+    <%= link_to 'Baker', user_path(@booking.cake.user), class: "badge badge-light bookings-link" %>
   </div>
 </div>
