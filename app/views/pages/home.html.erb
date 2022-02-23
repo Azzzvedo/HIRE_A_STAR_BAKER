@@ -1,6 +1,9 @@
 
+<<<<<<< HEAD
 <h1>Bakers</h1>
 
+=======
+>>>>>>> 435fb391cc07c283c9925b0373a5d05b8211ca3c
 <h1>Hire a Star Baker</h1>
 <div class="home-blurb">
   <p style= "line-height:2em">Do you love the Great British Bake Off?
@@ -9,10 +12,33 @@
     the baker closest to you and book them to make one of their delicious bakes
    </p>
 </div>
-<ul>
+
+<h2>Bakers</h2>
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+
+<div class="cards">
   <% @bakers.each do |baker| %>
-    <li><%= baker.first_name %> <%= baker.first_name %><%= link_to 'see my cakes', user_show_path(baker) %></li>
+    <div class = "card-profiles">
+      <div class="card-image">
+        <div class="card-info">
+          <h2><%= baker.first_name %> <%= baker.last_name %></h2>
+          <%# <p>Winner of GBBO</p> %>
+        </div>
+          <%# place tags here %>
+      </div>
+      <div>
+        <ul>
+          <li><%= link_to 'see my cakes', user_show_path(baker) %></li>
+        </ul>
+      </div>
+    </div>
   <% end %>
-</ul>
+</div>
+  <!-- Next and previous buttons -->
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+
+
+
 
 <p><%= link_to 'See my bookings', bookings_path(current_user) %></p>
