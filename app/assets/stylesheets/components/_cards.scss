@@ -1,0 +1,75 @@
+.container {
+  display: flex;
+  // background: white;
+  padding: 12px 16px;
+  gap: 16px;
+}
+
+
+.card-profiles {
+  display: flex;
+  flex-grow: 5;
+  display:grid;
+  grid-template-columns: 1fr, 1fr, 1fr, 1fr;
+  grid-gap: 16px;
+  background-color:white;
+  width: 250px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.card-image{
+  background-image: url("https://unsplash.it/1300/600?random");
+  height: 250px;
+  display: flex;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-content: flex-start;
+    justify-content: flex-end;
+}
+
+button {
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+ul {
+  list-style-type: none;
+}
+
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 70%;
+  width: auto;
+  margin-top: -22px;
+  padding: 24px;
+  color: #BFDBF7;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev {
+  left: 0;
+  border-radius: 3px 0 0 3px;
+}
