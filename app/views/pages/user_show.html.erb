@@ -1,28 +1,36 @@
 
 <div class="container py-5">
+
+  <div class="col-12 col-md-6 offset-lg-6" style="margin-left: 490px; margin-top: 244px;>
+
 <h3><%= @user.first_name %> <%= @user.last_name %></h3>
 <%= cl_image_tag(@user.photo.key, width: 400, height: 300, crop: :fill) %>
-  <div class="col-12 col-md-6 offset-lg-3 my-20">
-    <div class="bg-white rounded mt-20 p-3 shadow">
-      <div class="d-flex justify-content-space-between">
-      <% if @user.baker = true %>
-          <% @user.cakes.each do |cake| %>
-            <tr>
-              <td><%= cake.name %></td>
-              <td>:         £<%= cake.price %></td>
-              <%# <td><%= cake.photo, height: 300, width: 400, crop: :fill %></td>
-              <td><%= link_to 'show', cake_path(cake) %></td>
-              <td><%= link_to 'edit', edit_cake_path(cake) %></td>
-              <td><%= link_to 'delete', cake_path(cake), method: :delete, data: { confirm: 'Are you sure?'} %></td>
-            </tr>
-          <% end %>
-            <tr>
-              <td><button><%= link_to 'New cake', new_cake_path %></button></td>
-            </tr>
-      <%  end %>
+  <div class="cards">
+    <% if @user.baker = true %>
+        <% @user.cakes.each do |cake| %>
+          <div class = "card-profiles">
+            <div class="card-image" style="background-image: url(<%= cake.photo.url %>);">
+              <div class="card-info">
+                <h2><%= cake.name%></h2>
+              </div>
+            </div>
+            <div class="button-container">
+              <ul>
+                <li><button><%= link_to "See Recipe Details", cake_path(cake) %></button></li>
+              </ul>
+            </div>
+          </div>
+        <% end %>
+    <% end %>
+    <div class = "card-profiles">
+      <div class="card-image" style="background-color: #053C5E;">
+        <div class="card-info">
+          <h3><%= link_to 'New cake', new_cake_path, style: "color: white;" %></h3>
+        </div>
       </div>
-     <button> <%=link_to 'Home', root_path %></button>
     </div>
   </div>
+     <button> <%=link_to 'Home', root_path %></button>
+
 </div>
     <%# TODO add booking summary once bookings %>
