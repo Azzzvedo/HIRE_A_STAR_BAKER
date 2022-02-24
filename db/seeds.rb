@@ -16,17 +16,21 @@ SEASONS.each do |season|
 
   html_doc.search(".featured-block").each do |element|
     name = element.text.strip
-    user = User.new(
-      first_name: name,
-      email: "#{name}@bake-off.com",
-      password: '123456',
-      address: Faker::Address.street_address,
-      baker: true
-    )
-    file = URI.open(element.search('img').attribute("src"))
-    user.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
-    user.save!
+    unless name.capitalize == "Diana"
+      user = User.new(
+        first_name: name,
+        email: User.find_by(first_name: name) ? Faker::Internet.email : "#{name}@bake-off.com",
+        password: '123456',
+        address: Faker::Address.street_address,
+        baker: true
+      )
+      file = URI.open(element.search('img').attribute("src"))
+      user.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+      user.save!
+      puts "User #{name} created"
+    end
   end
+  puts "Season #{season} names scraped"
 end
 
 # COMMENT Baker recipe collection links
@@ -39,23 +43,25 @@ User.where(baker: true).each do |user|
   html_doc = Nokogiri::HTML(html_file)
 
   html_doc.search(".recipe-collection__item").each do |element|
-    if element.search('h4').text.strip[-8..] == '\'s Bakes' && element.search('h4').text.strip[0..-8] == user.first_name
+    if element.search('h4').text.strip == "#{user.first_name}\'s Bakes"
+      url_recipe = element.search('a').attribute("href").value # recipe collection link
+
+      html_file = URI.open(url_recipe).read
+      html_doc = Nokogiri::HTML(html_file)
+
+      html_doc.search(".recipes-loop__item").each do |e|
+        cake_name = e.search('h5').text.strip # recipe name
         cake = Cake.new(
           price: rand(8..16),
-          user: user
+          user: user,
+          name: cake_name
         )
-        url = element.search('a').attribute("href").value # recipe collection link
-
-        html_file = URI.open(url).read
-        html_doc = Nokogiri::HTML(html_file)
-
-        html_doc.search(".recipes-loop__item").each do |element|
-          cake[:name] = element.search('h5').text.strip # recipe name
-          file = URI.open(element.search('img').attribute("src"))
-          cake.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
-          cake.save
-        end
-
+        file = URI.open(e.search('.recipes-loop__item__image').search('img').attribute("src"))
+        cake.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
+        cake.save!
+        puts "#{cake_name.capitalize} created."
+      end
+      puts "#{user.capitalize}'s cakes added."
     end
   end
 end
