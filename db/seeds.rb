@@ -4,7 +4,7 @@ require 'faker'
 
 User.destroy_all
 
-SEASONS = (1..12).to_a
+SEASONS = (7..12).to_a
 
 # COMMENT Baker first names
 
