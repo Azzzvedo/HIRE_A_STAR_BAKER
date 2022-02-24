@@ -6,6 +6,7 @@
       <div class="d-flex justify-content-space-between">
       <% if @user.baker = true %>
         <table>
+          <%=@user.photo.key%>
           <% @user.cakes.each do |cake| %>
             <tr>
               <td><%= cake.name %></td>
@@ -27,4 +28,3 @@
   </div>
 </div>
     <%# TODO add booking summary once bookings %>
-
