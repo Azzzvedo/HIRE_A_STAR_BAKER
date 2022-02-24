@@ -3,7 +3,11 @@ class CakesController < ApplicationController
   before_action :set_cake, only: %i[show edit update destroy]
 
   def index
-    @cakes = Cake.all
+    if params[:query].present?
+      @cakes = Cake.global_search(params[:query])
+    else
+      @cakes = Cake.all
+    end
   end
 
   def show; end
