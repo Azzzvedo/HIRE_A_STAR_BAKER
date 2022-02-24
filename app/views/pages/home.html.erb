@@ -3,6 +3,16 @@
 
 <h1>Hire a Star Baker</h1>
 <p>Have your cake and eat it too!</p>
+  <div class="col-12 col-md-6 offset-lg-6" style="margin-left: 350px; margin-top: 244px;">
+    <%= form_tag cakes_path, method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Search by baker or cake!"
+      %>
+      <%= submit_tag "Search", class: "btn btn-primary " %>
+  </div>
+<% end %>
 </div>
 
 <div class="container">
@@ -14,6 +24,7 @@
     the baker closest to you and book them to make one of their delicious bakes
    </p>
 </div>
+
 
 
   <h2>Bakers</h2>
@@ -51,4 +62,3 @@
   <a href="#"><i class="fa fa-twitter"></i></a>
   <a href="#"><i class="fa fa-linkedin"></i></a>
 </div>
-
