@@ -1,2 +1,14 @@
 // Specific CSS for your home-page
 
+.box {
+  display: flex;
+  flex-direction: column;
+}
+
+.top-of-page {
+  display: block;
+}
+
+.bakers {
+  display: block;
+}
