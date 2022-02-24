@@ -1,6 +1,20 @@
-<ul>
-  <% @cakes.each do |cake| %>
-    <li><%= link_to cake.name, cake_path(cake) %></li>
-  <% end %>
-</ul>
-<%= link_to 'Create cake', new_cake_path %>
+
+<div class = "index-container">
+  <div class="cards">
+    <% @cakes.reverse.each do |cake| %>
+      <div class = "card-profiles">
+        <div class="card-image" style="background-image: url(<%= cake.photo.url %>);">
+          <div class="card-info">
+            <h2><%= cake.name%></h2>
+          </div>
+        </div>
+        <div class="button-container">
+          <ul>
+             <li><button><%= link_to "See Recipe Details", cake_path(cake) %></button></li>
+          </ul>
+        </div>
+
+      </div>
+    <% end %>
+  </div>
+</div>
