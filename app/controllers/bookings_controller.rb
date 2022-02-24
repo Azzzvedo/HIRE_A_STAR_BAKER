@@ -25,12 +25,12 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.cake = Cake.find(params[:cake_id])
     @booking.save
-    redirect_to booking_path(@booking)
+    redirect_to bookings_path
   end
 
   def update
     @booking.update(booking_params)
-    redirect_to booking_path(@booking)
+    redirect_to bookings_path
   end
 
   def destroy
