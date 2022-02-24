@@ -11,17 +11,20 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto">
             <div class="navbar-text">
-          <% if user_signed_in? %>
-            <li class="nav-item active">
-              <%= link_to "Cakes", cakes_path , class: "nav-link" %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "StarBakers",root_path , class: "nav-link" %>
-            </li>
-            <li class ="nav-item">
-              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %>
-            </li>
-              </div>
+              <% if user_signed_in? %>
+                <li class="nav-item active">
+                  <%= link_to "Cakes", cakes_path , class: "nav-link" %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "StarBakers",root_path , class: "nav-link" %>
+                </li>
+                <li class ="nav-item">
+                  <%= link_to 'Bookings', bookings_path(current_user), class: "nav-link" %>
+                </li>
+                <li class ="nav-item">
+                  <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %>
+                </li>
+            </div>
         </ul>
           <% else %>
             <ul class="nav-item navbar-align navbar-text">
