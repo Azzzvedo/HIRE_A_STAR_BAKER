@@ -1,12 +1,11 @@
 
 <div class="container py-5">
+<h3><%= @user.first_name %> <%= @user.last_name %></h3>
+<%= cl_image_tag(@user.photo.key, width: 400, height: 300, crop: :fill) %>
   <div class="col-12 col-md-6 offset-lg-3 my-20">
     <div class="bg-white rounded mt-20 p-3 shadow">
-      <h3><%= @user.first_name %> <%= @user.last_name %></h3>
       <div class="d-flex justify-content-space-between">
       <% if @user.baker = true %>
-        <table>
-          <%=@user.photo.key%>
           <% @user.cakes.each do |cake| %>
             <tr>
               <td><%= cake.name %></td>
@@ -20,7 +19,6 @@
             <tr>
               <td><button><%= link_to 'New cake', new_cake_path %></button></td>
             </tr>
-        </table>
       <%  end %>
       </div>
      <button> <%=link_to 'Home', root_path %></button>
