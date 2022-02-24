@@ -7,6 +7,23 @@
   position: relative;
 }
 
+.index-container{
+margin-top: 40px;
+margin-bottom: 40px;
+margin-right: 10px;
+margin-left: 160px;
+}
+
+.title-container{
+  margin-top: 10px;
+  margin-bottom: 40px;
+  margin-right: 10px;
+  margin-left: 160px;
+}
+.title-container > h2{
+  font-size: 48px;
+}
+
 .button-container{
 display:flex;
 }
@@ -38,6 +55,10 @@ display:flex;
   }
 }
 
+.card-info{
+ color: white;
+ text-shadow: 2px 2px 4px #000000;
+}
 
 .card-profiles {
   display: flex;
