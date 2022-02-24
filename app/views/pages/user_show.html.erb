@@ -6,6 +6,7 @@
       <div class="d-flex justify-content-space-between">
       <% if @user.baker = true %>
         <table>
+          <%=@user.profile_picture.key%>
           <% @user.cakes.each do |cake| %>
             <tr>
               <td><%= cake.name %></td>
