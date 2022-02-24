@@ -1,5 +1,5 @@
 <div class="box">
-<div class="top-of-page">
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_path 'lauren-gray-Zqh5l1JWs5M-unsplash.jpg' %>);">
 
@@ -16,9 +16,8 @@
   </div>
 <% end %>
 </div>
-
-<div class="container">
-
+<div class="top-of-page justify-content-start">
+<div class ="col-12 col-md-6 offset-lg-6" style="margin-left: 348px;" >
 <div class="home-blurb">
   <p style= "line-height:2em">Do you love the Great British Bake Off?
     Have you always wanted to try some of the delicious bakes from the tent?
@@ -29,10 +28,10 @@
 </div>
 
 
-<div class="bakers">
+<div class="bakers container margin-left: 300px margin-top: 64px">
+  <h2 id="bakers-title" style="margin-bottom: 36px;">Bakers</h2>
 
-  <h2>Bakers</h2>
-    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <%# <a class="prev" onclick="plusSlides(-1)">&#10094;</a> %>
 
   <div class="cards">
     <% @bakers.reverse.each do |baker| %>
@@ -49,15 +48,12 @@
              <li><button><%= link_to 'See my cakes', user_show_path(baker) %></button></li>
           </ul>
         </div>
-
       </div>
     <% end %>
   </div>
   </div>
     <!-- Next and previous buttons -->
-    <a class="next" onclick="plusSlides(1)">&#10095;</a>
-
-<p><button><%= link_to 'See my bookings', bookings_path(current_user) %></button></p>
+    <%# <a class="next" onclick="plusSlides(1)">&#10095;</a> %>
 
 
 <div class ="footer">
