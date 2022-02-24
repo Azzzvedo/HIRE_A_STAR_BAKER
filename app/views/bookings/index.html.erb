@@ -1,61 +1,87 @@
 <div class="container">
-  <h3><%= "#{current_user.first_name}'s cakes!" if @bookings.count > 0 %> </h3>
+
+
+
+  <h3 class="text-center"><%= "#{current_user.first_name}'s cakes!" if @bookings.count > 0 %></h3>
   <div class="cards">
     <% @bookings.each do |booking| %>
-      <div class = "card-profiles my-3">
+      <div class = "card-bookings my-3 " style="background-image: linear-gradient(rgba(255,255,255,0.6),rgba(255,255,255,0.6)), url(<%= booking.cake.photo.url %>);">
         <div class="p-3">
           <h5><%= booking.cake.name %></h5>
           <% d = (booking.date - Date.today).to_i %>
-          <% if d > 1 %>
-            <%= "Happiness arrives in #{d} days' time" %>
-          <% elsif d == 1 %>
-            <%= "Happiness arrives tomorrow!" %>
-          <% elsif d == 0 %>
-            <%= "Today's the day🎉 !" %>
-          <% else %>
-            <%= "Hope you enjoyed your cake🎉 !" %>
-          <% end %>
-          <p>Happiness arrives in<%=  %></p>
+          <p class="mb-3">
+            <% if d > 1 %>
+              <%= "Happiness arrives in #{d} days' time" %>
+            <% elsif d == 1 %>
+              <%= "Happiness arrives tomorrow!" %>
+            <% elsif d == 0 %>
+              <%= "Today's the day🎉 !" %>
+            <% else %>
+              <%= "Hope you enjoyed your cake🎉 !" %>
+            <% end %>
+          </p>
+          <p class="mb-3">
             <% if booking.confirmed? %>
               <% if booking.paid?%>
-                <p><%= "#{booking.cake.user.first_name.capitalize} is baking your 🍰 !" %></p>
+                <%= "#{booking.cake.user.first_name.capitalize} is baking your 🍰 !" %>
               <% else %>
-                <p><%= "🍰 confirmed! Make payment now?" %></p>
+                <%= "🍰 confirmed! Make payment now?" %>
               <% end %>
             <% else %>
               <%= "🍰  still waiting for confirmation. Check back soon!" %>
             <% end %>
-          <div class="mt-1">
-            <%= link_to 'See details', booking_path(booking), class: 'btn btn-primary' %>
-          </div>
+          </p>
+            <%= link_to 'See details', booking_path(booking), class: 'btn btn-primary col-12 mb-2' %>
           <%= link_to 'Cake', cake_path(booking.cake), class: "badge badge-light bookings-link" %>
-          <%= link_to 'Baker', user_path(booking.cake.user), class: "badge badge-light bookings-link" %>
+          <%= link_to 'Baker', user_show_path(booking.cake.user), class: "badge badge-light bookings-link" %>
         </div>
       </div>
     <% end %>
   </div>
-    <h3><%= "#{current_user.first_name}'s cakes!" if @cake_bookings.count > 0 %> </h3>
+
+  <h3 class="text-center"><%= "#{current_user.first_name}'s Bakes!" if @cake_bookings.count > 0 %> </h3>
+
   <div class="cards">
-    <div>
-      <% @cake_bookings.each do |cake_booking| %>
-        <div class = "card-profiles my-3">
+    <% @cake_bookings.each do |cake_booking| %>
+      <div class = "card-bookings my-3" style="background-image: linear-gradient(rgba(255,255,255,0.6),rgba(255,255,255,0.6)), url(<%= cake_booking.cake.photo.url %>);">
+        <div class="p-3">
           <h5><%= cake_booking.cake.name %></h5>
-          <p><%= cake_booking.date %></p>
-          <p>buyer: <%= cake_booking.user.first_name %> <%= cake_booking.user.last_name %></p>
-          <p>baker: <%= cake_booking.cake.user.first_name %> <%= cake_booking.cake.user.last_name %></p>
-          <%= simple_form_for cake_booking do |f| %>
-            <%= f.input :confirmed, as: :boolean %>
-            <%= f.input :paid, as: :boolean %>
-            <%= f.submit class: 'btn btn-primary col-4' %>
+          <% d = (cake_booking.date - Date.today).to_i %>
+          <p class="mb-3">
+            <% if d > 1 %>
+              <%= "Baking starts in #{d} days' time" %>
+            <% elsif d == 1 %>
+              <%= "Delivering happiness tomorrow!" %>
+            <% elsif d == 0 %>
+              <%= "Today's the day🎉 !" %>
+            <% else %>
+              <%= "This one's behind you!" %>
+            <% end %>
+          </p>
+          <% unless cake_booking.confirmed && cake_booking.paid %>
+            <%= simple_form_for cake_booking do |f| %>
+              <% if cake_booking.confirmed == false %>
+                <%= f.input :confirmed, as: :boolean %>
+              <% elsif cake_booking.paid == false %>
+                <%= f.input :paid, as: :boolean %>
+              <% end %>
+              <%= f.submit class: 'btn btn-primary col-12' %>
+            <% end %>
+          <% else %>
+            <%= "All paid up, time to get baking!" %>
           <% end %>
           <div class="mt-1">
-            <%= link_to 'See details', booking_path(cake_booking), class: 'btn btn-primary col-4' %>
+            <%= link_to 'See details', booking_path(cake_booking), class: 'btn btn-primary col-12' %>
           </div>
           <%= link_to 'Cake', cake_path(cake_booking.cake), class: "badge badge-light bookings-link" %>
           <%= link_to 'Baker', user_path(cake_booking.cake.user), class: "badge badge-light bookings-link" %>
         </div>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
   </div>
+
   <%= link_to 'Home', root_path, class: "badge badge-light bookings-link" if @cake_bookings.count == 0 && @bookings.count == 0 %>
+
+
+
 </div>

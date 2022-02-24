@@ -4,9 +4,9 @@ class CakesController < ApplicationController
 
   def index
     if params[:query].present?
-      @cakes = Cake.global_search(params[:query])
+      @cakes = Cake.global_search(params[:query]).shuffle
     else
-      @cakes = Cake.all
+      @cakes = Cake.all.shuffle
     end
   end
 
