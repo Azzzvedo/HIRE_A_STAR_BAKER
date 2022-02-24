@@ -72,6 +72,19 @@ display:flex;
   border-radius: 4px;
 }
 
+.card-bookings {
+  display: flex;
+  flex-grow: 5;
+  display:grid;
+  grid-template-columns: 1fr, 1fr, 1fr, 1fr;
+  grid-gap: 16px;
+  background-color:white;
+  width: 250px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  border-radius: 4px;
+  height: 280px;
+}
+
 .card-image{
   height: 250px;
   background-size: cover;
