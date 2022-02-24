@@ -1,4 +1,5 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_path 'lauren-gray-Zqh5l1JWs5M-unsplash.jpg' %>);">
+
 <h1>Hire a Star Baker</h1>
 <p>Have your cake and eat it too!</p>
 </div>
@@ -13,6 +14,7 @@
    </p>
 </div>
 
+
   <h2>Bakers</h2>
     <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
 
@@ -26,16 +28,17 @@
           </div>
             <%# place tags here %>
         </div>
-        <div>
+        <div = "button-container">
           <ul>
-            <li><%= link_to 'see my cakes', user_show_path(baker) %></li>
+             <li><button><%= link_to 'See my cakes', user_show_path(baker) %></button></li>
           </ul>
         </div>
+
       </div>
     <% end %>
   </div>
     <!-- Next and previous buttons -->
     <a class="next" onclick="plusSlides(1)">&#10095;</a>
 
-  <p><%= link_to 'See my bookings', bookings_path(current_user) %></p>
-</div>
+<p><button><%= link_to 'See my bookings', bookings_path(current_user) %></button></p>
+

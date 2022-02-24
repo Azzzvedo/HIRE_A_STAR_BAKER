@@ -1,3 +1,4 @@
+
 <div class="container py-5">
   <div class="col-12 col-md-6 offset-lg-3 my-20">
     <div class="bg-white rounded mt-20 p-3 shadow">
@@ -16,13 +17,14 @@
             </tr>
           <% end %>
             <tr>
-              <td><%= link_to 'New cake', new_cake_path %></td>
+              <td><button><%= link_to 'New cake', new_cake_path %></button></td>
             </tr>
         </table>
       <%  end %>
       </div>
-      <%= link_to 'Home', root_path %>
+     <button> <%=link_to 'Home', root_path %></button>
     </div>
   </div>
 </div>
     <%# TODO add booking summary once bookings %>
+
