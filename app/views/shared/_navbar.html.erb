@@ -1,33 +1,35 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
-    <% end %>
+<div class="sticky-top">
+  <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+    <div class="container-fluid">
+      <%= link_to "#", class: "navbar-brand" do %>
+      <% end %>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
-        <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "Cakes", cakes_path , class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "StarBakers",root_path , class: "nav-link" %>
-          </li>
-          <li class ="nav-item">
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %>
-          </li>
-            </div>
-        <% else %>
-          <li class="nav-item navbar-align">
-            <%= link_to "Cakes",cakes_path , class: "nav-link"%>
-            <%= link_to "StarBakers",root_path , class: "nav-link" %>
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-          </li>
-        <% end %>
-      </ul>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto">
+          <% if user_signed_in? %>
+            <li class="nav-item active">
+              <%= link_to "Cakes", cakes_path , class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "StarBakers",root_path , class: "nav-link" %>
+            </li>
+            <li class ="nav-item">
+              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %>
+            </li>
+              </div>
+          <% else %>
+            <li class="nav-item navbar-align">
+              <%= link_to "Cakes",cakes_path , class: "nav-link"%>
+              <%= link_to "StarBakers",root_path , class: "nav-link" %>
+              <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
     </div>
   </div>
 </div>

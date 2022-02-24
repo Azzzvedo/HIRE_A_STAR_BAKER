@@ -1,0 +1,16 @@
+button {
+  background-color: $dark-blue;
+  color: #BFDBF7;
+  padding: 15px 20px;
+  border-radius: 4px;
+}
+
+button > a {
+  color: #BFDBF7;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+button > a:hover {
+  color: white;
+}

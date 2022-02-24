@@ -3,7 +3,7 @@
   background: white;
   width:100vh;
   height:70px;
-  position:fixed;
+
   -webkit-transform-origin: left top;
   -webkit-transform:rotate(-90deg) translateX(-100%);
 }
@@ -22,4 +22,10 @@ ul.nav-item {
 
 .navbar-align {
   display: flex;
+}
+.nav-link{
+  font-size: 18px;
+}
+.nav-link:hover {
+  transform: scale(1.5);
 }
