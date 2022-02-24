@@ -61,7 +61,7 @@ User.where(baker: true).each do |user|
         cake.save!
         puts "#{cake_name.capitalize} created."
       end
-      puts "#{user.capitalize}'s cakes added."
+      puts "#{user.first_name.capitalize}'s cakes added."
     end
   end
 end
