@@ -2,22 +2,18 @@
 <div class = "title-container">
   <h2>Explore the bakes from The Great British Bake Off</h2>
 </div>
-
 <div class = "index-container">
   <div class="cards">
     <% @cakes.reverse.each do |cake| %>
       <div class = "card-profiles">
         <div class="card-image" style="background-image: url(<%= cake.photo.url %>);">
           <div class="card-info">
-            <h2><%= cake.name%></h2>
+            <h3><%= cake.name%></h3>
           </div>
         </div>
-        <div class="button-container">
-          <ul>
-             <li><button><%= link_to "See Recipe Details", cake_path(cake) %></button></li>
-          </ul>
+        <div class="button-container  d-flex justify-content-center align-self-center">
+             <button><%= link_to "See the bake!", cake_path(cake) %></button>
         </div>
-
       </div>
     <% end %>
   </div>

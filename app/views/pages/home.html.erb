@@ -45,10 +45,8 @@
           </div>
             <%# place tags here %>
         </div>
-        <div class="button-container">
-          <ul>
-             <li><button><%= link_to 'See my cakes', user_show_path(baker) %></button></li>
-          </ul>
+        <div class="button-container d-flex justify-content-center align-self-center">
+          <button><%= link_to 'See my bakes', user_show_path(baker) %></button>
         </div>
       </div>
     <% end %>
