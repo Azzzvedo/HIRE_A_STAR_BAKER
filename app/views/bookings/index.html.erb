@@ -1,5 +1,5 @@
 <div class="container">
-  <h3 class="text-center"><%= "#{current_user.first_name}'s cakes!" if @bookings.count > 0 %></h3>
+  <h4 class="text-center mb-3"><%= "Your upcoming bakes!" if @bookings.count > 0 %></h4>
   <div class="cards">
     <% @bookings.each do |booking| %>
       <div class = "card-bookings my-3 " style="background-image: linear-gradient(rgba(255,255,255,0.6),rgba(255,255,255,0.6)), url(<%= booking.cake.photo.url %>);">
@@ -41,7 +41,7 @@
     <% end %>
   </div>
 
-  <h3 class="text-center"><%= "#{current_user.first_name}'s Bakes!" if @cake_bookings.count > 0 %> </h3>
+  <h3 class="text-center mb-3"><%= "Your upcoming orders!" if @cake_bookings.count > 0 %> </h3>
 
   <div class="cards">
     <% @cake_bookings.each do |cake_booking| %>
