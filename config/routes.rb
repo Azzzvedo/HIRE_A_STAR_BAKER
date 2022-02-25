@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :cakes, only: %i[index]
   end
   resources :cakes do
-    resources :bookings, only: %i[new create]
+    resources :bookings, only: %i[new create update]
   end
   resources :bookings, only: %i[index show update destroy]
 end
