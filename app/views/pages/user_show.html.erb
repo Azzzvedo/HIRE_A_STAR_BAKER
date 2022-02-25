@@ -4,15 +4,12 @@
     <h2><%= @user.first_name %> <%= @user.last_name %></h2>
 
     <div class = "display">
-      <%= cl_image_tag(@user.photo.key, width: 400, height: 300, crop: :fill, class: "baker-image") %>
-
-
-      <div class = "map"
-      data-controller="mapbox"
-      data-mapbox-markers-value="<%= @markers.to_json %>"
-      data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      <%= cl_image_tag(@user.photo.key, width: 350, height: 325, crop: :fill, class: "baker-image") %>
+      <div>
+      <br>
+        <%# <h2><%= @user.first_name %>
+      </div>
     </div>
-  </div>
 
   <div class="cards">
     <% if @user.baker = true %>
