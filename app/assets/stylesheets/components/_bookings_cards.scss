@@ -10,6 +10,9 @@
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
   border-radius: 4px;
   height: 280px;
+  p {
+    text-align: center;
+  }
 }
 
 .card-bookings-buttons {
@@ -19,14 +22,23 @@
 
 .card-bookings-large {
   position: relative;
+  padding: 1rem;
   display: flex;
   flex-grow: 5;
   display:grid;
   grid-template-columns: 1fr, 1fr, 1fr, 1fr;
   grid-gap: 16px;
   background-color:white;
-  width: 250px;
+  width: 500px;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
   border-radius: 4px;
+  height: 600px;
+}
+
+.bookings-photo {
+  width: 450 px;
   height: 280px;
+  background-position: center;
+  background-size: cover;
+
 }
