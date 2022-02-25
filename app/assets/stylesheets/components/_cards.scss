@@ -25,7 +25,8 @@ margin-left: 160px;
 }
 
 .button-container{
-display:flex;
+  display:flex;
+  padding-bottom: 1rem;
 }
 
 .cards-container {
@@ -58,6 +59,7 @@ display:flex;
 .card-info{
  color: white;
  text-shadow: 2px 2px 4px #000000;
+ margin-left: 1rem;
 }
 
 .card-profiles {
