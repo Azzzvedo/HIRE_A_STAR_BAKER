@@ -5,7 +5,7 @@
       <div class = "card-bookings my-3 " style="background-image: linear-gradient(rgba(255,255,255,0.6),rgba(255,255,255,0.6)), url(<%= booking.cake.photo.url %>);">
         <div class="p-3">
           <h6><%= booking.cake.name %></h6>
-          <% d = (booking.date - Date.today).to_i %>
+          <% dooking.date ? d = (booking.date - Date.today).to_i : 5 %>
           <p class="mb-3">
             <% if d > 1 %>
               <%= "Happiness arrives in #{d} days' time" %>
@@ -83,9 +83,6 @@
       </div>
     <% end %>
   </div>
-
   <%= link_to 'Home', root_path, class: "badge badge-light bookings-link" if @cake_bookings.count == 0 && @bookings.count == 0 %>
-
-
 
 </div>
