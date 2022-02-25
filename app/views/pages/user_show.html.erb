@@ -1,19 +1,19 @@
-  <div style="width: 100%; height: 200px;"
-    data-controller="mapbox"
-    data-mapbox-markers-value="<%= @markers.to_json %>"
-    data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
-
 <div class="container py-5">
 
-  <div class="col-12 col-md-6 offset-lg-6" style="margin-left: 490px; margin-top: 244px;">
-
-
 <div class="container">
-  <div>
     <h2><%= @user.first_name %> <%= @user.last_name %></h2>
-    <%= cl_image_tag(@user.photo.key, width: 400, height: 300, crop: :fill, class: "baker-image") %>
+
+    <div class = "display">
+      <%= cl_image_tag(@user.photo.key, width: 400, height: 300, crop: :fill, class: "baker-image") %>
+
+
+      <div class = "map"
+      data-controller="mapbox"
+      data-mapbox-markers-value="<%= @markers.to_json %>"
+      data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
   </div>
+
   <div class="cards">
     <% if @user.baker = true %>
       <% @user.cakes.each do |cake| %>
