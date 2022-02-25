@@ -32,9 +32,9 @@
       <% end %>
     <% end %>
     <% if @user == current_user %>
-      <div class = "card-profiles my-3"style="background-color: #053C5E;">
-        <h3 class="d-flex justify-content-center align-items-center"><%= link_to 'Add a new cake', new_cake_path, style: "color: white;", class: "text-decoration-none" %></h3>
-      </div>
+      <%= link_to new_cake_path,class: "card-profiles my-3 d-flex justify-content-center align-items-center", style:"background-color: #053C5E;" do %>
+        <h3  style="color: white;" >Add a new cake</h3>
+      <% end %>
     <% end %>
   </div>
   <button> <%=link_to 'Home', root_path %></button>
